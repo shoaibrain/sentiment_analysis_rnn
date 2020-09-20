@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Review Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style>
+        body {
+            background-color: #adb5bd;
+
+            color: #343a40;
+        }
+
+        .my_container {
+            /* margin: 20px auto; */
+            background-color: #ced4da;
+            height: 100vh;
+        }
+
+        h1.find {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            padding: 40px 5px;
+        }
+
+        p.msg {
+            text-align: center;
+            padding: 10px;
+            line-height: 1.9;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        button.my-btn,
+        button.my-btn::after,
+        button.my-btn:active,
+        button.my-btn::before {
+            display: block;
+            margin: 0 auto;
+            padding: 18px 30px;
+            border-radius: 20px;
+            background-color: #3d5a80;
+            font-size: 18px;
+            font-weight: 700;
+            color: #011627;
+        }
+
+        div.notice {
+            display: none;
+            width: 90%;
+            text-align: left;
+            justify-content: center;
+            font-size: 16px;
+            line-height: 1.7;
+            padding: 10px 20px;
+
+        }
+
+        span.note {
+            font-weight: 600;
+            font-size: 20px;
+            color: #ee6c4d;
+            text-decoration: underline;
+            margin-top: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container my_container">
+        <h1 class="find">Let's see out if that's a positive review...</h1>
+        <p class="msg">Enter your review in the text box below and hit "Send" button to get a sentiment.</p>
+        <form method="POST" action="***https://uvwyl3edei.execute-api.us-east-2.amazonaws.com/deploy***"
+            onsubmit="return submitForm(this);">
+            <div class="form-group">
+                <label for="review"></label>
+                <textarea class="form-control" rows="10" cols="20" id="review"
+                    placeholder="Enter your review here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-default my-btn" data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">Send</button>
+        </form>
+        <h1 class="bg-success" id="result"></h1>
+
+        <div class="notice collapse" id="collapseExample">
+            <span class="note">Note:</span>
+            <p class="notice-msg">
+                Please be informed deploying a model on SageMaker costs $$$ and I don't have enough
+                of that to leave my model deployed. It has been shut down and the sentiment shown above is arbitrary.
+                If you want to learn more about this project, Check my <a href="#">repo.</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
